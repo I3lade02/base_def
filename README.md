@@ -82,12 +82,3 @@ Unlicensed
 
 ## Author
 I3lade - 2025
-
----
-
-## Future Ideas
-- Procedurally generated maps.
-- Advanced enemy types and AI.
-- Multiplayer co-op or versus mode.
-- Trading system with neutral factions.
-
