@@ -14,7 +14,9 @@ class GameScene:
         self.tilemap.update_training()
         for (x, y) in self.tilemap.pop_finished_trainings():
             print(f"Spawning soldier at ({x}, {y})")
-            self.soldiers.append(Soldier(x, y))
+            self.soldiers.append(Soldier(x, y, self.tilemap))
+        for soldier in self.soldiers:
+            soldier.update()
     
     def draw(self, surface):
         self.tilemap.draw(surface)
@@ -50,3 +52,13 @@ class GameScene:
                         elif clicked_tile == 6:
                             print("barracks clicked")
                             self.tilemap.start_training(tile_x, tile_y)
+                
+                elif event.button == 3:
+                    mouse_x, mouse_y = pygame.mouse.get_pos()
+                    target_tile_x = mouse_x / 32
+                    target_tile_y = mouse_y / 32
+
+                    for soldier in self.soldiers:
+                        soldier.target_x = target_tile_x
+                        soldier.target_y = target_tile_y
+
